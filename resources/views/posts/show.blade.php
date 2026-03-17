@@ -12,6 +12,15 @@
     </form>
     </h1>
    
+    <p>
+        Category:
+        @if ($post->category)
+            <a href="{{ route('categories.show', $post->category) }}">{{ $post->category->name }}</a>
+        @else
+            (none)
+        @endif
+    </p>
+
     <p>{!! nl2br(e($post->body))!!}</p>
 
     <h2>Comments</h2>

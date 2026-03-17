@@ -2,20 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\Post;
 use App\Http\Requests\PostRequest;
+use App\Models\Category;
+use App\Models\Post;
 
 class PostController extends Controller
 {
-  
-
-    public function index()
-    {
-        $posts = Post::latest()->get();
-        return view('index')->with(['posts' => $posts]);
-    }
-
     public function show(Post $post)
     {
         return view('posts.show')->with(['post' => $post]);
@@ -23,36 +15,46 @@ class PostController extends Controller
 
     public function create()
     {
-        return view('posts.create');
+        return view('posts.create')->with([
+            'categories' => Category::query()->orderBy('name')->get(),
+        ]);
     }
 
     public function store(PostRequest $request)
     {
-      
-        $post = new Post();
+
+        $post = new Post;
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->category_id = $request->category_id;
         $post->save();
-        return redirect()->route('posts.index');
+
+        return redirect()->route('categories.show', $post->category);
     }
 
     public function edit(Post $post)
     {
-        return view('posts.edit')->with(['post' => $post]);
+        return view('posts.edit')->with([
+            'post' => $post,
+            'categories' => Category::query()->orderBy('name')->get(),
+        ]);
     }
 
     public function update(PostRequest $request, Post $post)
     {
-       
+
         $post->title = $request->title;
         $post->body = $request->body;
+        $post->category_id = $request->category_id;
         $post->save();
+
         return redirect()->route('posts.show', $post);
     }
 
     public function destroy(Post $post)
     {
         $post->delete();
+
         return redirect()->route('posts.index');
     }
 }

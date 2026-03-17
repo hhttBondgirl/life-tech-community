@@ -7,6 +7,25 @@
     <form method="POST" action="{{ route('posts.update', $post) }}">
         @method('PATCH')
         @csrf
+        <div>
+            <label>
+            Category
+            <select name="category_id">
+                <option value="">-- Select --</option>
+                @foreach ($categories as $category)
+                    <option
+                        value="{{ $category->id }}"
+                        @selected(old('category_id', $post->category_id) == $category->id)
+                    >
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+            </label>
+            @error('category_id')
+                <p class="error">{{ $message }}</p>
+            @enderror
+        </div>
         <div>        
             <label>
             Title
