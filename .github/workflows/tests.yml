@@ -45,3 +45,7 @@ jobs:
       - name: Run Tests
         # もし Pest を入れていなければ php unit に変える必要があるけど、まずはこれで試そう！
         run: php artisan test
+
+      - name: Show Laravel log on failure
+        if: failure()
+        run: cat storage/logs/laravel.log
