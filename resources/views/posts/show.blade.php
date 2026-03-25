@@ -1,19 +1,19 @@
 <x-layout>
     <x-slot:title>
-        {{ $post->title }} | My Laravel App
+        {{ $post->title }} | Techと暮らしのサロン
     </x-slot>
 
     <h1>{{ $post->title }}
-    <a href="{{ route('posts.edit', $post) }}">Edit</a>
+    <a class = "edit-link" href="{{ route('posts.edit', $post) }}">修正する</a>
     <form method="POST" action="{{ route('posts.destroy', $post) }}" id = "delete-form">
         @csrf
         @method('DELETE')
-        <button type="submit">Delete</button>
+        <button type="submit">削除する</button>
     </form>
     </h1>
    
     <p>
-        Category:
+        カテゴリー:
         @if ($post->category)
             <a href="{{ route('categories.show', $post->category) }}">{{ $post->category->name }}</a>
         @else
@@ -23,7 +23,7 @@
 
     <p>{!! nl2br(e($post->body))!!}</p>
 
-    <h2>Comments</h2>
+    <h2>レス一覧</h2>
     <ul>
         @forelse ($post->comments as $comment)
             <li>
@@ -31,15 +31,15 @@
                 <form method = "post" action = "{{ route('posts.comments.destroy', [$post, $comment])}}" class = "comment-delete-form">
                     @csrf
                     @method('DELETE')
-                    <button>Delete</button>
+                    <button class="delete-button">削除する</button>
                 </form>
             </li>
         @empty
-            <li>No comments yet.</li>
+            <li>レスはまだありません。</li>
         @endforelse
     </ul>
 
-    <h2>Add a comment</h2>
+    <h2>レスする</h2>
     <form method = "post" action="{{ route('posts.comments.store', $post) }}">
         @csrf
         <div>
@@ -49,10 +49,10 @@
             @enderror
         </div>
         <div>
-            <button>Add</button>
+            <button>レスを追加する</button>
         </div>
     </form>
-    <p class="back-link"><a href="{{ route('posts.index') }}">Back</a></p>
+    <p class="back-link"><a href="{{ route('posts.index') }}">Topへ戻る</a></p>
 
     <script>
         document.getElementById('delete-form').addEventListener('submit', function(event) {

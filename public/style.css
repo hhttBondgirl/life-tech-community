@@ -1,24 +1,91 @@
+body {
+  font-family:'Helvetica', 'Noto Sans JP', sans-serif;
+  background-image: url("img/bg.png"); 
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  background-attachment: fixed;
+}
+
 .container {
-    width: 800px;
-    margin: 16px auto;
+    width: 80%;
+    height: auto;
+    padding: 32px 16px 64px;
+    margin: 72px auto;
+    background-color:rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
   }
-  
-  h1 {
-    font-size: 20px;
-  }
+ 
+ img[src$="img/logo.svg"] {
+  display: block; /* ブロック要素にする */
+  width: auto;     /* 横幅は自動調整 */
+  height: 40px;    /* 👈 ここ！高さを強制的に指定する（サロンに合わせて調整してね） */
+}
 
-  h1 a {
-    font-size: 16px;
-    font-weight: normal;
-    color: #000;
-  }
+.board-header {
+  margin-bottom: 64px;
+}
 
-  h1 form {
-    display: inline-block;
-  }
+.board-header-left {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.board-header-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  gap: 12px;
+}
+
+.header-menu a {
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  gap: 12px;
+}
+
+.header-menu a:hover {
+  color: #007bff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
   
   .back-link {
     text-align: right;
+  }
+
+  .delete-button {
+    background-color: #eee;
+    color: #333;
+    border: #333 0.5px solid;
+    padding: 1px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+   
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: normal;
+    color: #333;
+    margin: 0;
+    padding: 0;
   }
 
   h2 {
@@ -46,24 +113,106 @@ li form {
   display: inline-block;
 }
 
-.board-layout { display: flex; gap: 24px; align-items: flex-start; }
-.board-sidebar { width: 240px; flex: 0 0 240px; }
-.board-main { flex: 1 1 auto; min-width: 0; }
-.category-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
-.category-link { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid #e5e7eb; border-radius: 8px; text-decoration: none; color: inherit; }
-.category-link.is-active { background: #111827; color: #fff; border-color: #111827; }
-.category-icon { width: 18px; height: 18px; flex: 0 0 18px; display: inline-flex; }
-.category-icon svg { width: 18px; height: 18px; display: block; }
+.board-layout { 
+  display: flex; 
+  gap: 24px; 
+  align-items: 
+  flex-start;
+ }
+ 
+.board-sidebar { 
+  width: 240px;
+  flex: 0 0 240px;
+}
+
+.board-main { 
+  flex: 1 1 auto; 
+  min-width: 0; 
+}
+
+.category-list { 
+  list-style: none; 
+  padding: 0; 
+  margin: 0; display: 
+  grid; gap: 8px; 
+}
+
+.category-link { 
+  display: flex; 
+  align-items: center; 
+  gap: 10px; 
+  padding: 10px 12px; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 8px; 
+  text-decoration: none; 
+  color: inherit; 
+}
+
+.category-link.is-active { 
+  background: #e8f7ff; 
+  color:  #007bff; 
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+
+
+.category-icon { 
+  width: 24px; 
+  height: 24px; 
+  flex: 0 0 18px; 
+  display: inline-flex;
+ }
+
+
+.category-icon svg { width: 24px; height: 24px; display: block; }
+
+
 .post-list { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 10px; }
 .post-item { padding: 12px; border: 1px solid #e5e7eb; border-radius: 8px; }
 .post-item a { text-decoration: none; color: inherit; }
-.post-title { display: block; font-weight: 600; }
+.post-title { 
+  display: block; 
+  font-weight: 400; 
+  font-size: 18px;
+  line-height: 1.5;
+  color: #333;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.post-title:hover {
+  color: #007bff;
+}
+
 .post-meta { margin-top: 6px; color: #6b7280; font-size: 12px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .post-meta-item { display: inline-flex; align-items: center; gap: 6px; }
 .post-meta-icon { width: 14px; height: 14px; display: inline-flex; }
 .post-meta-icon svg { width: 14px; height: 14px; display: block; transform: scaleX(-1); }
 .post-meta-separator { color: #d1d5db; }
-.board-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.board-header { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 12px; 
+}
+
+.edit-link {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.edit-link:hover {
+  color: #0056b3;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+
 @media (max-width: 768px) {
     .board-layout { flex-direction: column; }
     .board-sidebar { width: 100%; flex-basis: auto; }
