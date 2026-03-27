@@ -31,4 +31,4 @@ Route::middleware('auth')->group(function () {
     Route::resource('posts.comments', CommentController::class)->only(['store', 'destroy']);
 });
 
-// require __DIR__.'/auth.php';
+require __DIR__.'/auth.php';
