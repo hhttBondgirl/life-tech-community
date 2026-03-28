@@ -1,4 +1,4 @@
-<x-guest-layout>
+<!-- <x-guest-layout>
     <div class="max-w-md mx-auto p-6">
         <h1 class="text-xl font-semibold text-gray-900">
             Welcome
@@ -26,4 +26,4 @@
             @endif
         </div>
     </div>
-</x-guest-layout>
+</x-guest-layout> -->
