@@ -18,7 +18,7 @@ class CategoryController extends Controller
             ->first();
 
         if ($first === null) {
-            return view('index', [
+            return view('posts.index', [
                 'categories' => collect(),
                 'selectedCategory' => null,
                 'posts' => collect(),
@@ -42,7 +42,7 @@ class CategoryController extends Controller
             ->latest()
             ->get();
 
-        return view('index', [
+        return view('posts.index', [
             'categories' => $categories,
             'selectedCategory' => $category,
             'posts' => $posts,
