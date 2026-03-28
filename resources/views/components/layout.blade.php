@@ -11,6 +11,7 @@
 
     {{-- ViteでビルドされたCSS/JSを読み込む（本番でも正しく読みます） --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <link rel="stylesheet" href="{{ asset('style.css') }}">
 </head>
 <body>
     <div class="container">
