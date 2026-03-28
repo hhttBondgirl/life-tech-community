@@ -8,10 +8,19 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
+    // public function index()
+    // {
+    //     return view('posts.index');
+    // }
+
     public function index()
-    {
-        return view('posts.index');
-    }
+{
+    $posts = Post::latest()->get();
+    $categories = Category::all();
+    $selectedCategory = null;
+
+    return view('posts.index', compact('posts', 'categories', 'selectedCategory'));
+}
 
     public function show(Post $post)
     {
