@@ -31,19 +31,5 @@ Route::middleware('auth')->group(function () {
     Route::resource('posts.comments', CommentController::class)->only(['store', 'destroy']);
 });
 
-Route::get('/init', function () {
-    \App\Models\Category::create([
-        'name' => 'Tech',
-        'slug' => 'tech',
-    ]);
-
-    \App\Models\Post::create([
-        'title' => 'はじめての投稿',
-        'body' => 'Railwayデプロイ成功！',
-        'category_id' => 1,
-    ]);
-
-    return 'ok';
-});
 
 require __DIR__.'/auth.php';
