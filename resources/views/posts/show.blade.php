@@ -8,11 +8,11 @@
     <form method="POST" action="{{ route('posts.destroy', $post) }}" id = "delete-form">
         @csrf
         @method('DELETE')
-        <button type="submit">削除する</button>
+        <button type="submit" class="delete-button">削除する</button>
     </form>
     </h1>
    
-    <p>
+    <p class = "show-category">
         カテゴリー:
         @if ($post->category)
             <a href="{{ route('categories.show', $post->category) }}">{{ $post->category->name }}</a>
