@@ -15,17 +15,24 @@
 
         <div class="board-header">
             <div class="board-header-left">
-            <h1>
-                <a href="{{ route('posts.index') }}">
-                    <img src="{{ asset('img/logo.svg') }}" alt="Techと暮らしのサロン">
-                </a>
-            </h1>
-            <div class="header-menu">
-                <a href="#">ランキング</a>
-                <a href="#">新着順</a>
-                <a href="#">マイページ作成</a>
-                <a href="#">ログアウト</a>
-            </div>
+                <h1>
+                    <a href="{{ route('posts.index') }}">
+                        <img src="{{ asset('img/logo.svg') }}" alt="Techと暮らしのサロン">
+                    </a>
+                </h1>
+                <div class="header-menu">
+                    <a href="#">ランキング</a>
+                    <a href="#">新着順</a>
+                    <a href="#">マイページ作成</a>
+
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit"
+                            style="background:none; border:none; color:inherit; cursor:pointer; padding:0;">
+                            ログアウト
+                        </button>
+                    </form>
+                </div>
             </div>
             <div class="board-header-right">
                 <a href="{{ route('posts.create') }}">投稿を追加</a>
