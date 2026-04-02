@@ -14,18 +14,23 @@ A Laravel-based bulletin board application for sharing ideas about life, work, a
 ## 🖼️ サービス画面
 
 ### ログイン
+
 ![ログインページ](public/img/login.png)
 
 ### トップページ
+
 ![トップページ](public/img/top.png)
 
 ### 投稿詳細ページ
+
 ![投稿の詳細ページ](public/img/show.png)
 
 ### 投稿作成ページ
+
 ![投稿ページ](public/img/post.png)
 
 ### 投稿編集ページ
+
 ![修正ページ](public/img/fix.png)
 
 ---
@@ -59,7 +64,6 @@ A Laravel-based bulletin board application for sharing ideas about life, work, a
 
 - 投稿の並び替え（新着順・人気順）
 - ランキング機能の追加
-- ログアウト機能の実装
 - レスポンシブ対応の強化
 - UI / UX のさらなる改善
 - ログインページのブラッシュアップ
