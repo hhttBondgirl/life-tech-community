@@ -63,6 +63,7 @@ A Laravel-based bulletin board application for sharing ideas about life, work, a
 ## 🚀 今後の改善
 
 - 投稿の並び替え（新着順・人気順）
+- ログアウト機能の実装 -> 実装済み
 - ランキング機能の追加
 - レスポンシブ対応の強化
 - UI / UX のさらなる改善
